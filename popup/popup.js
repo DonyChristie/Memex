@@ -1,20 +1,43 @@
 function ToggleRecording(rec) {
-    console.log(rec);
     var button = document.getElementById("recordButton");
     console.log(button);
     button.addEventListener('click', function tempFunc() {
         button.removeEventListener('click', tempFunc);
         ToggleRecording(!rec);
     });
-    button.innerHTML = ((rec) ? "Start" : "Stop") + " Recording";
+    button.innerHTML = ((rec) ? "Stop" : "Start") + " Recording";
 }
-function renderStatus(statusText) {
-    document.getElementById('status').textContent = statusText;
-}
+var rec = true;
+
+
 document.addEventListener('DOMContentLoaded', function () {
-    var record = document.getElementById("recordButton");
-    record.addEventListener('click', function tempFunc() {
-        record.removeEventListener('click', tempFunc);
-        ToggleRecording(true);
+    document.getElementById("recordButton").addEventListener('click',function(){onRecordClick();});
+    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+        var url = tabs[0].url;
+        chrome.storage.local.get(url, function (items){
+            var note = items['note'];
+            note = (note === undefined)? "Write a note here!":note;
+            var noteArea = document.getElementById("notes");
+            noteArea.innerHTML = note;
+        });
+    });
+    var noteArea = document.getElementById("notes");
+    console.log(noteArea);
+    noteArea.addEventListener("onkeyup",function(vars){
+        console.log(vars);
+        console.log("hello!");
     });
 });
+
+
+/*
+chrome.tabs.query({'active':true, 'lastFocusedWindow':true}, function (tabs) {
+    var url = tabs[0].url;
+    chrome.storage.local.get(url, function (items){
+        items['note'];
+        note = (note === undefined)? "Write a note here!":note;
+        var noteArea = document.getElementById("notes");
+        noteArea.innerHTML = note;
+    });
+});
+*/
