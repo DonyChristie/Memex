@@ -119,6 +119,7 @@ function updateActiveTabList(){
     var bigConn = items["conns"];
     bigConn = (bigConn===undefined)?{}:bigConn;
     var conns = bigConn[active[0].url];
+    conns = (conns === undefined)? []: conns;
     
     
     results.forEach(function(res,i,results) {
