@@ -1,8 +1,9 @@
 body {
-  width:200px;
+  width:400px;
 }
 textarea {
   width:inherit;
+  height:200px;
 }
 select {
   width:inherit;
@@ -16,4 +17,17 @@ div {
 button {
   clear:both;
   width:inherit;
+}
+.scrollbox {
+  height:200px;
+  overflow-x:scroll;
+  overflow-y:scroll;
+}
+input[type="checkbox"] ~ label { 
+    padding-left:1.4em;
+    display:inline-block;
+}
+ul {
+  max-height:200px;
+  overflow-y:scroll;
 }

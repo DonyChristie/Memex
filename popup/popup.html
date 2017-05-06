@@ -1,24 +1,23 @@
 <html>
-  <head>
-    <title>Memex Version 1</title>
-    <script src="popup.js"></script>
-    <link rel="stylesheet" href="popup.css">
-  </head>
-  <body>
-    <button id="recordButton" type="button">Make Link</button>
-    <button id="blankButton" type="button">Blank Page</button>
-    <!--<select multiple id="startPages"></select> -->
-    <p>Connections:</p>
-    <select multiple id="connectionList"></select>
-    <p> Notes: </p>
-    <textarea id="notes"></textarea>
-    
-    <div id="recordBox">
-        <p>Local tabs:</p>
-        <select multiple id="linkSelect"></select>
-        <p>Other connections:</p>
-        <select multiple id="linkOld"></select>
-    </div>
-  </body>
-</html>
+<head>
+<title>Memex Version 1</title>
+<script src="popup.js"></script>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<button id="recordButton" type="button">Make Link</button>
+<!--<button id="blankButton" type="button">Blank Page</button>
+<select multiple id="startPages"></select> -->
+<p>Connections:</p>
+<ul id="connectionList"></ul>
+<p> Notes: </p>
+<textarea id="notes"></textarea>
 
+<div id="recordBox">
+<p>Local tabs:</p>
+<div class="scrollbox" id="linkSelect"></div>
+<p>Other connections:</p>
+<div class="scrollbox" id="linkOld"></div>
+</div>
+</body>
+</html>
